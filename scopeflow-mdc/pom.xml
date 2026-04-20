@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>io.scopeflow</groupId>
+        <artifactId>scopeflow-parent</artifactId>
+        <version>0.1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>scopeflow-mdc</artifactId>
+    <packaging>jar</packaging>
+
+    <name>ScopeFlow MDC</name>
+    <description>
+        SLF4J MDC bridge for ScopeFlow: automatically propagates scope context keys
+        to/from the Mapped Diagnostic Context for correlated logging.
+    </description>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.scopeflow</groupId>
+            <artifactId>scopeflow-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+
+        <!-- Test: need an actual SLF4J backend to verify MDC behavior -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>

@@ -1,0 +1,2 @@
+io.scopeflow.spring.autoconfigure.ScopeFlowAutoConfiguration
+io.scopeflow.spring.autoconfigure.ScopeFlowWebMvcAutoConfiguration

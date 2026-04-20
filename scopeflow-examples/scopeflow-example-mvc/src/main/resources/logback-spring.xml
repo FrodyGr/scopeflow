@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!--
+                MDC keys populated automatically by ScopeFlow:
+                - request.id:  from HTTP header or auto-generated UUID
+                - http.method: GET, POST, etc.
+                - http.path:   request URI
+                - customer.id: domain-specific (set in controller)
+                - product:     domain-specific (set in controller)
+                - order.id:    domain-specific (set in controller)
+            -->
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level [req=%X{request.id:-}] [cust=%X{customer.id:-}] %logger{24} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+    <!-- ScopeFlow debug logging (uncomment for troubleshooting) -->
+    <!-- <logger name="io.scopeflow" level="DEBUG" /> -->
+</configuration>
