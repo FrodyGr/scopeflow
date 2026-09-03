@@ -1,4 +1,4 @@
-# ScopedValue & StructuredTaskScope (Preview)
+﻿# ScopedValue & StructuredTaskScope (Preview)
 
 > **⚠️ Preview Feature**: This module requires Java 23+ with `--enable-preview`. APIs may change in future Java releases.
 
@@ -8,7 +8,7 @@ The `scopeflow-scoped` module provides an alternative API using Java's **ScopedV
 
 ```xml
 <dependency>
-    <groupId>io.scopeflow</groupId>
+    <groupId>io.github.frodygr</groupId>
     <artifactId>scopeflow-scoped</artifactId>
 </dependency>
 ```

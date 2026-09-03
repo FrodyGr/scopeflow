@@ -1,4 +1,4 @@
-# Micrometer Integration
+﻿# Micrometer Integration
 
 ## Overview
 
@@ -6,7 +6,7 @@ The `scopeflow-micrometer` module provides a `ThreadLocalAccessor` bridge that e
 
 ```xml
 <dependency>
-    <groupId>io.scopeflow</groupId>
+    <groupId>io.github.frodygr</groupId>
     <artifactId>scopeflow-micrometer</artifactId>
 </dependency>
 ```

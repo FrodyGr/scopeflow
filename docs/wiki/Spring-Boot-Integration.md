@@ -1,4 +1,4 @@
-# Spring Boot Integration
+﻿# Spring Boot Integration
 
 ## Auto-Configuration
 
@@ -6,7 +6,7 @@ The `scopeflow-spring-boot-starter` provides **zero-configuration** setup:
 
 ```xml
 <dependency>
-    <groupId>io.scopeflow</groupId>
+    <groupId>io.github.frodygr</groupId>
     <artifactId>scopeflow-spring-boot-starter</artifactId>
     <version>0.1.0-SNAPSHOT</version>
 </dependency>

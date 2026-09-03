@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.scopeflow</groupId>
+    <groupId>io.github.frodygr</groupId>
     <artifactId>scopeflow-parent</artifactId>
     <version>0.1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
@@ -14,7 +14,7 @@
         Context propagation, logging and tracing for Java 21+ with Virtual Threads and Spring Boot.
         The simplest way to propagate context, logging and tracing in modern Java.
     </description>
-    <url>https://github.com/scopeflow/scopeflow</url>
+    <url>https://github.com/FrodyGr/scopeflow</url>
     <inceptionYear>2026</inceptionYear>
 
     <licenses>
@@ -24,6 +24,23 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
+
+    <developers>
+        <developer>
+            <id>FrodyGr</id>
+            <name>Carlos Expósito</name>
+            <email>carlos.cjec@gmail.com</email>
+            <url>https://frodygr.github.io</url>
+            <organizationUrl>https://github.com/FrodyGr</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/FrodyGr/scopeflow.git</connection>
+        <developerConnection>scm:git:ssh://github.com:FrodyGr/scopeflow.git</developerConnection>
+        <url>https://github.com/FrodyGr/scopeflow</url>
+        <tag>HEAD</tag>
+    </scm>
 
     <modules>
         <module>scopeflow-bom</module>
@@ -67,43 +84,45 @@
         <maven-source-plugin.version>3.3.1</maven-source-plugin.version>
         <maven-javadoc-plugin.version>3.11.2</maven-javadoc-plugin.version>
         <maven-enforcer-plugin.version>3.5.0</maven-enforcer-plugin.version>
+        <maven-gpg-plugin.version>3.2.7</maven-gpg-plugin.version>
+        <central-publishing-plugin.version>0.7.0</central-publishing-plugin.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
             <!-- ScopeFlow modules -->
             <dependency>
-                <groupId>io.scopeflow</groupId>
+                <groupId>io.github.frodygr</groupId>
                 <artifactId>scopeflow-core</artifactId>
                 <version>${scopeflow.version}</version>
             </dependency>
             <dependency>
-                <groupId>io.scopeflow</groupId>
+                <groupId>io.github.frodygr</groupId>
                 <artifactId>scopeflow-mdc</artifactId>
                 <version>${scopeflow.version}</version>
             </dependency>
             <dependency>
-                <groupId>io.scopeflow</groupId>
+                <groupId>io.github.frodygr</groupId>
                 <artifactId>scopeflow-micrometer</artifactId>
                 <version>${scopeflow.version}</version>
             </dependency>
             <dependency>
-                <groupId>io.scopeflow</groupId>
+                <groupId>io.github.frodygr</groupId>
                 <artifactId>scopeflow-otel</artifactId>
                 <version>${scopeflow.version}</version>
             </dependency>
             <dependency>
-                <groupId>io.scopeflow</groupId>
+                <groupId>io.github.frodygr</groupId>
                 <artifactId>scopeflow-scoped</artifactId>
                 <version>${scopeflow.version}</version>
             </dependency>
             <dependency>
-                <groupId>io.scopeflow</groupId>
+                <groupId>io.github.frodygr</groupId>
                 <artifactId>scopeflow-spring-boot-autoconfigure</artifactId>
                 <version>${scopeflow.version}</version>
             </dependency>
             <dependency>
-                <groupId>io.scopeflow</groupId>
+                <groupId>io.github.frodygr</groupId>
                 <artifactId>scopeflow-spring-boot-starter</artifactId>
                 <version>${scopeflow.version}</version>
             </dependency>
@@ -247,4 +266,80 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>release</id>
+            <build>
+                <plugins>
+                    <!-- Attach source JAR -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>${maven-source-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <!-- Generate Javadoc JAR -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>${maven-javadoc-plugin.version}</version>
+                        <configuration>
+                            <doclint>none</doclint>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <!-- GPG signing -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>${maven-gpg-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                                <configuration>
+                                    <gpgArguments>
+                                        <arg>--pinentry-mode</arg>
+                                        <arg>loopback</arg>
+                                    </gpgArguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <!-- Publish to Maven Central via Sonatype Central Portal -->
+                    <plugin>
+                        <groupId>org.sonatype.central</groupId>
+                        <artifactId>central-publishing-maven-plugin</artifactId>
+                        <version>${central-publishing-plugin.version}</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <publishingServerId>central</publishingServerId>
+                            <autoPublish>true</autoPublish>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>

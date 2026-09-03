@@ -1,4 +1,4 @@
-# MDC Logging
+﻿# MDC Logging
 
 ## Overview
 
@@ -12,7 +12,7 @@ The `scopeflow-mdc` module bridges ScopeFlow context to SLF4J's **Mapped Diagnos
 
 ```xml
 <dependency>
-    <groupId>io.scopeflow</groupId>
+    <groupId>io.github.frodygr</groupId>
     <artifactId>scopeflow-spring-boot-starter</artifactId>
 </dependency>
 ```

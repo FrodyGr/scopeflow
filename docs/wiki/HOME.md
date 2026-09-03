@@ -1,4 +1,4 @@
-# ScopeFlow Wiki
+﻿# ScopeFlow Wiki
 
 > **The simplest way to propagate context, logging and tracing in modern Java.**
 
@@ -21,7 +21,7 @@ Welcome to the ScopeFlow wiki! This documentation covers everything you need to 
 
 ## Quick Links
 
-- **Maven coordinates**: `io.scopeflow:scopeflow-spring-boot-starter`
+- **Maven coordinates**: `io.github.frodygr:scopeflow-spring-boot-starter`
 - **License**: Apache License 2.0
 - **Java baseline**: 21+
 - **Spring Boot**: 3.2+

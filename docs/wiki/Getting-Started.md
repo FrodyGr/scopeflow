@@ -1,4 +1,4 @@
-# Getting Started
+﻿# Getting Started
 
 ## Installation
 
@@ -8,7 +8,7 @@ Add the starter to your `pom.xml`:
 
 ```xml
 <dependency>
-    <groupId>io.scopeflow</groupId>
+    <groupId>io.github.frodygr</groupId>
     <artifactId>scopeflow-spring-boot-starter</artifactId>
     <version>0.1.0-SNAPSHOT</version>
 </dependency>
@@ -26,14 +26,14 @@ Use individual modules:
 
 ```xml
 <dependency>
-    <groupId>io.scopeflow</groupId>
+    <groupId>io.github.frodygr</groupId>
     <artifactId>scopeflow-core</artifactId>
     <version>0.1.0-SNAPSHOT</version>
 </dependency>
 
 <!-- Optional: MDC integration -->
 <dependency>
-    <groupId>io.scopeflow</groupId>
+    <groupId>io.github.frodygr</groupId>
     <artifactId>scopeflow-mdc</artifactId>
     <version>0.1.0-SNAPSHOT</version>
 </dependency>
@@ -47,7 +47,7 @@ To align all ScopeFlow versions:
 <dependencyManagement>
     <dependencies>
         <dependency>
-            <groupId>io.scopeflow</groupId>
+            <groupId>io.github.frodygr</groupId>
             <artifactId>scopeflow-bom</artifactId>
             <version>0.1.0-SNAPSHOT</version>
             <type>pom</type>

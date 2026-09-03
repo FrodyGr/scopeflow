@@ -1,4 +1,4 @@
-# OpenTelemetry Integration
+﻿# OpenTelemetry Integration
 
 ## Overview
 
@@ -6,7 +6,7 @@ The `scopeflow-otel` module bridges ScopeFlow context entries to **OpenTelemetry
 
 ```xml
 <dependency>
-    <groupId>io.scopeflow</groupId>
+    <groupId>io.github.frodygr</groupId>
     <artifactId>scopeflow-otel</artifactId>
 </dependency>
 ```

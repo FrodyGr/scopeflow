@@ -1,10 +1,15 @@
+<p align="center">
+  <img src="docs/scopeflow-logo.jpg" alt="ScopeFlow Logo" width="650"/>
+</p>
+
 # ScopeFlow
 
 **The simplest way to propagate context, logging and tracing in Java 21+ with Spring and virtual threads.**
 
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![Java](https://img.shields.io/badge/Java-21%2B-orange.svg)](https://openjdk.org/jeps/444)
-[![Build](https://github.com/FirstOnDie/scopeflow/actions/workflows/ci.yml/badge.svg)](https://github.com/FirstOnDie/scopeflow/actions)
+[![Build](https://github.com/FrodyGr/scopeflow/actions/workflows/publish.yml/badge.svg)](https://github.com/FrodyGr/scopeflow/actions)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.frodygr/scopeflow-bom.svg?label=Maven%20Central)](https://central.sonatype.com/artifact/io.github.frodygr/scopeflow-bom)
 
 ---
 
@@ -49,7 +54,7 @@ ScopeFlow provides a single **scope-based abstraction** that:
 
 ```xml
 <dependency>
-    <groupId>io.scopeflow</groupId>
+    <groupId>io.github.frodygr</groupId>
     <artifactId>scopeflow-spring-boot-starter</artifactId>
     <version>0.1.0</version>
 </dependency>
@@ -82,12 +87,12 @@ public class OrderController {
 
 ```xml
 <dependency>
-    <groupId>io.scopeflow</groupId>
+    <groupId>io.github.frodygr</groupId>
     <artifactId>scopeflow-core</artifactId>
     <version>0.1.0</version>
 </dependency>
 <dependency>
-    <groupId>io.scopeflow</groupId>
+    <groupId>io.github.frodygr</groupId>
     <artifactId>scopeflow-mdc</artifactId>
     <version>0.1.0</version>
 </dependency>
@@ -118,7 +123,7 @@ try (Scope scope = scopeFlow.open("order.process",
 </repositories>
 
 <dependency>
-    <groupId>com.github.FirstOnDie</groupId>
+    <groupId>com.github.FrodyGr</groupId>
     <artifactId>scopeflow-spring-boot-starter</artifactId>
     <version>v0.1.0</version>
 </dependency>
