@@ -101,37 +101,37 @@
             <dependency>
                 <groupId>io.github.frodygr</groupId>
                 <artifactId>scopeflow-core</artifactId>
-                <version>${scopeflow.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.github.frodygr</groupId>
                 <artifactId>scopeflow-mdc</artifactId>
-                <version>${scopeflow.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.github.frodygr</groupId>
                 <artifactId>scopeflow-micrometer</artifactId>
-                <version>${scopeflow.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.github.frodygr</groupId>
                 <artifactId>scopeflow-otel</artifactId>
-                <version>${scopeflow.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.github.frodygr</groupId>
                 <artifactId>scopeflow-scoped</artifactId>
-                <version>${scopeflow.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.github.frodygr</groupId>
                 <artifactId>scopeflow-spring-boot-autoconfigure</artifactId>
-                <version>${scopeflow.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.github.frodygr</groupId>
                 <artifactId>scopeflow-spring-boot-starter</artifactId>
-                <version>${scopeflow.version}</version>
+                <version>${project.version}</version>
             </dependency>
 
             <!-- Spring Boot BOM -->
@@ -301,7 +301,6 @@
                         <version>${maven-javadoc-plugin.version}</version>
                         <configuration>
                             <doclint>none</doclint>
-                            <additionalOptions>--enable-preview</additionalOptions>
                             <failOnError>false</failOnError>
                         </configuration>
                         <executions>
