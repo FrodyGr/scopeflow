@@ -36,6 +36,22 @@ try (Scope scope = scopeFlow.open("request", Map.of("request.id", "abc-123"))) {
 }
 ```
 
+### Visual Log Stream Comparison
+
+```text
+# WITHOUT ScopeFlow (Virtual Threads context drop)
+10:14:02.100 [http-nio-8080-exec-1] [traceId=req-9412 tenant=eu-west] INFO  - Processing incoming order
+10:14:02.104 [ForkJoinPool-1-worker-3] [traceId=null     tenant=null]    INFO  - Submitting payment to gateway
+10:14:02.112 [ForkJoinPool-1-worker-5] [traceId=null     tenant=null]    ERROR - Payment failed: timeout
+# 💥 Broken correlation! Worker threads lose MDC, traceId, and tenant context.
+
+# WITH ScopeFlow (Automatic propagation)
+10:14:02.100 [http-nio-8080-exec-1] [traceId=req-9412 tenant=eu-west] INFO  - Processing incoming order
+10:14:02.104 [ForkJoinPool-1-worker-3] [traceId=req-9412 tenant=eu-west] INFO  - Submitting payment to gateway
+10:14:02.112 [ForkJoinPool-1-worker-5] [traceId=req-9412 tenant=eu-west] ERROR - Payment failed: timeout
+# ✅ 100% Correlation preserved across Virtual Threads, ScopedValue, and MDC!
+```
+
 ScopeFlow provides a single **scope-based abstraction** that:
 
 - ✅ Creates, enriches, and closes context scopes via `try-with-resources`
